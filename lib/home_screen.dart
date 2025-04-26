@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:furniswap/product_details_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -63,7 +64,12 @@ class _HomeScreenState extends State<HomeScreen> {
         color: Colors.transparent,
         borderRadius: BorderRadius.circular(12),
         child: InkWell(
-          onTap: () {},
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => ProductDetailsScreen()));
+          },
           borderRadius: BorderRadius.circular(12),
           splashColor: Colors.brown.withOpacity(0.1),
           highlightColor: Colors.brown.withOpacity(0.2),
@@ -161,7 +167,12 @@ class _HomeScreenState extends State<HomeScreen> {
         color: Colors.transparent,
         borderRadius: BorderRadius.circular(12),
         child: InkWell(
-          onTap: () {},
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => ProductDetailsScreen()));
+          },
           borderRadius: BorderRadius.circular(12),
           splashColor: Colors.brown.withOpacity(0.1),
           highlightColor: Colors.brown.withOpacity(0.2),
