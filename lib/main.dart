@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:furniswap/product_details_screen.dart';
 import 'package:furniswap/splash_screen.dart';
-import 'package:furniswap/update_order_screen.dart';
-import 'package:furniswap/update_product_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -44,7 +41,7 @@ class MyApp extends StatelessWidget {
           appBarTheme: AppBarTheme(
             surfaceTintColor: Colors.black12,
           )),
-      home: UpdateOrderScreen(),
+      home: SplashScreen(),
     )  ;
   }
 }
