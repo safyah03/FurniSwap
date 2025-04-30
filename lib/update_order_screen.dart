@@ -94,7 +94,7 @@ class _UpdateOrderScreenState extends State<UpdateOrderScreen> {
           onPressed: () {},
           style: ElevatedButton.styleFrom(
             backgroundColor: Color(0xff694A38),
-            elevation: 5,
+            elevation: 0,
             minimumSize: Size(double.infinity, 48),
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
