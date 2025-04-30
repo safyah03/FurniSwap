@@ -56,6 +56,7 @@ class _UpdateProductScreenState extends State<UpdateProductScreen> {
       return;
     }
     final source = await showModalBottomSheet<ImageSource>(
+      backgroundColor: Colors.white,
       context: context,
       builder: (context) => SafeArea(
         child: Wrap(
