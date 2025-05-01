@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:furniswap/edit_review_screen.dart';
+import 'create_review_screen.dart';
 
 class ReviewsScreen extends StatefulWidget {
   const ReviewsScreen({super.key});
-
   @override
   State<ReviewsScreen> createState() => _ReviewsScreenState();
 }
@@ -14,7 +15,6 @@ class Review {
   String comment;
   double rating;
   bool isEditing;
-
   Review({
     required this.title,
     required this.imagePath,
@@ -41,7 +41,7 @@ class _ReviewsScreenState extends State<ReviewsScreen> {
     ),
   ];
 
-  Widget buildPendingReviewsItem() {
+  Widget buildPendingReviewsItem(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 15),
       child: ElevatedButton(
@@ -56,7 +56,22 @@ class _ReviewsScreenState extends State<ReviewsScreen> {
             borderRadius: BorderRadius.circular(12),
           ),
         ),
-        onPressed: () {},
+        onPressed: () async {
+          final newReview = await Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => CreateReviewScreen(
+                imagePath: "assets/images/Bookshelf.png",
+                title: "Bookshelf",
+              ),
+            ),
+          );
+          if (newReview != null) {
+            setState(() {
+              reviews.add(newReview);
+            });
+          }
+        },
         child: Padding(
           padding: const EdgeInsets.all(10),
           child: Row(
@@ -93,7 +108,22 @@ class _ReviewsScreenState extends State<ReviewsScreen> {
                     ),
                     SizedBox(height: 8),
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () async {
+                        final newReview = await Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => CreateReviewScreen(
+                              imagePath: "assets/images/Bookshelf.png",
+                              title: "Bookshelf",
+                            ),
+                          ),
+                        );
+                        if (newReview != null) {
+                          setState(() {
+                            reviews.add(newReview);
+                          });
+                        }
+                      },
                       style: ElevatedButton.styleFrom(
                         elevation: 5,
                         minimumSize: Size(double.infinity, 35),
@@ -243,21 +273,26 @@ class _ReviewsScreenState extends State<ReviewsScreen> {
                             Row(
                               children: [
                                 TextButton(
-                                  onPressed: () {
-                                    setState(() {
-                                      review.isEditing = !review.isEditing;
-                                    });
+                                  onPressed: () async {
+                                    final updatedReview = await Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => EditReviewScreen(
+                                          review: review,
+                                        ),
+                                      ),
+                                    );
+                                    if (updatedReview != null) {
+                                      setState(() {
+                                        review.title = updatedReview.title;
+                                        review.comment = updatedReview.comment;
+                                        review.rating = updatedReview.rating;
+                                      });
+                                    }
                                   },
                                   child: Text(
-                                    review.isEditing ? "Save" : "Edit",
+                                    "Edit",
                                     style: TextStyle(color: Colors.blue),
-                                  ),
-                                  style: TextButton.styleFrom(
-                                    padding: EdgeInsets.symmetric(
-                                        vertical: 8, horizontal: 3),
-                                    minimumSize: Size.zero,
-                                    tapTargetSize:
-                                        MaterialTapTargetSize.shrinkWrap,
                                   ),
                                 ),
                                 SizedBox(width: 10),
@@ -302,10 +337,10 @@ class _ReviewsScreenState extends State<ReviewsScreen> {
             shrinkWrap: true,
             physics: NeverScrollableScrollPhysics(),
             children: [
-              buildPendingReviewsItem(),
-              buildPendingReviewsItem(),
-              buildPendingReviewsItem(),
-              buildPendingReviewsItem(),
+              buildPendingReviewsItem(context),
+              buildPendingReviewsItem(context),
+              buildPendingReviewsItem(context),
+              buildPendingReviewsItem(context),
             ],
           ),
         ],
