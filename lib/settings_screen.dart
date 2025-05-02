@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:furniswap/account_settings_screen.dart';
 import 'package:furniswap/auth_screens/login_screen.dart';
 import 'package:furniswap/icons/icons.dart';
+import 'package:furniswap/language_region_screen.dart';
+import 'package:furniswap/messages_list_screen.dart';
+import 'package:furniswap/notifications_screen.dart';
+import 'package:furniswap/password_security_screen.dart';
 import 'package:furniswap/profile_screen.dart';
 
 Widget buildListItem({
@@ -67,6 +72,37 @@ class SettingsScreen extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
+        actions: [
+          IconButton(
+            icon:
+            const Icon(Icons.notifications_none, color: Color(0xff694A38)),
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => NotificationsScreen()));
+            },
+            style: TextButton.styleFrom(
+              padding: EdgeInsets.symmetric(horizontal: 3),
+              minimumSize: Size.zero,
+              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+            ),
+          ),
+          IconButton(
+            icon: const Icon(Icons.sms_outlined, color: Color(0xff694A38)),
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => MessagesListScreen()));
+            },
+            style: TextButton.styleFrom(
+              padding: EdgeInsets.only(left: 3, right: 8),
+              minimumSize: Size.zero,
+              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+            ),
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -115,7 +151,7 @@ class SettingsScreen extends StatelessWidget {
               buildListItem(
                 icon: Icons.person_outline,
                 label: "Account Settings",
-                screen: ProfileScreen(),
+                screen: AccountSettingsScreen(),
                 context: context,
                 isCustomIcon: false,
               ),
@@ -123,7 +159,7 @@ class SettingsScreen extends StatelessWidget {
               buildListItem(
                 icon: Icons.lock,
                 label: "Password & Security",
-                screen: ProfileScreen(),
+                screen: PasswordSecurityScreen(),
                 context: context,
                 isCustomIcon: false,
               ),
@@ -131,7 +167,7 @@ class SettingsScreen extends StatelessWidget {
               buildListItem(
                 icon: Icons.notifications_none,
                 label: "Notifications",
-                screen: ProfileScreen(),
+                screen: NotificationsScreen(),
                 context: context,
                 isCustomIcon: false,
               ),
@@ -149,7 +185,7 @@ class SettingsScreen extends StatelessWidget {
               buildListItem(
                 icon: MyFlutterApp.language,
                 label: "Language & Region",
-                screen: ProfileScreen(),
+                screen: LanguageRegionScreen(),
                 context: context,
                 isCustomIcon: true,
               ),

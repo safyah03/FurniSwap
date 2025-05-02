@@ -2,6 +2,8 @@ import 'dart:io';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:furniswap/messages_list_screen.dart';
+import 'package:furniswap/notifications_screen.dart';
 import 'package:furniswap/reviews_screen.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -99,13 +101,37 @@ class _CreateReviewScreenState extends State<CreateReviewScreen> {
           ),
         ),
         centerTitle: true,
-        actions: const [
-          Padding(
-            padding: EdgeInsets.only(right: 16),
-            child: Icon(Icons.notifications_none, color: Color(0xff694A38)),
+        actions: [
+          IconButton(
+            icon:
+                const Icon(Icons.notifications_none, color: Color(0xff694A38)),
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => NotificationsScreen()));
+            },
+            style: TextButton.styleFrom(
+              padding: EdgeInsets.symmetric(horizontal: 3),
+              minimumSize: Size.zero,
+              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+            ),
+          ),
+          IconButton(
+            icon: const Icon(Icons.sms_outlined, color: Color(0xff694A38)),
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => MessagesListScreen()));
+            },
+            style: TextButton.styleFrom(
+              padding: EdgeInsets.only(left: 3, right: 8),
+              minimumSize: Size.zero,
+              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+            ),
           ),
         ],
-        iconTheme: const IconThemeData(color: Color(0xff694A38)),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),

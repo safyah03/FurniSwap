@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:furniswap/icons/icons.dart';
+import 'package:furniswap/product_details_screen.dart';
 
 class SwapScreen extends StatelessWidget {
   const SwapScreen({super.key});
 
-  Widget buildSwapItemCard() {
+
+  Widget buildSwapItemCard(BuildContext context) {
     return Container(
       width: 358,
       height: 450,
@@ -23,7 +25,12 @@ class SwapScreen extends StatelessWidget {
         color: Colors.transparent,
         borderRadius: BorderRadius.circular(12),
         child: InkWell(
-          onTap: () {},
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => ProductDetailsScreen()));
+          },
           borderRadius: BorderRadius.circular(12),
           splashColor: Colors.brown.withOpacity(0.1),
           highlightColor: Colors.brown.withOpacity(0.2),
@@ -144,7 +151,7 @@ class SwapScreen extends StatelessWidget {
             scrollDirection: Axis.vertical,
             itemCount: 6,
             itemBuilder: (context, index) {
-              return buildSwapItemCard();
+              return buildSwapItemCard(context);
             },
             separatorBuilder: (BuildContext context, int index) {
               return SizedBox(height: 15);
