@@ -73,7 +73,7 @@ class SwapAndRepairMainScreen extends StatelessWidget {
           ],
           bottom: TabBar(
               overlayColor:
-                  MaterialStateProperty.all(Colors.brown.withOpacity(0.07)),
+                  WidgetStateProperty.all(Colors.brown.withOpacity(0.07)),
               labelStyle: TextStyle(
                   fontWeight: FontWeight.bold, fontFamily: "pop", fontSize: 15),
               unselectedLabelStyle: TextStyle(
