@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:furniswap/icons/icons.dart';
-import 'package:furniswap/product_details_screen.dart';
+import 'package:furniswap/swap_details_screen.dart';
 
 class SwapScreen extends StatelessWidget {
   const SwapScreen({super.key});
@@ -29,7 +29,7 @@ class SwapScreen extends StatelessWidget {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => ProductDetailsScreen()));
+                    builder: (context) => SwapDetailsScreen()));
           },
           borderRadius: BorderRadius.circular(12),
           splashColor: Colors.brown.withOpacity(0.1),

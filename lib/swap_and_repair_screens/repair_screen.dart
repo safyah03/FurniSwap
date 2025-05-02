@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:furniswap/icons/icons.dart';
+import 'package:furniswap/repair_details_screen.dart';
 
 class RepairScreen extends StatelessWidget {
   const RepairScreen({super.key});
 
-  Widget buildRepairItemCard() {
+  Widget buildRepairItemCard(BuildContext context) {
     return Container(
       width: 358,
       height: 395,
@@ -23,7 +24,12 @@ class RepairScreen extends StatelessWidget {
         color: Colors.transparent,
         borderRadius: BorderRadius.circular(12),
         child: InkWell(
-          onTap: () {},
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => RepairDetailsScreen()));
+          },
           borderRadius: BorderRadius.circular(12),
           splashColor: Colors.brown.withOpacity(0.1),
           highlightColor: Colors.brown.withOpacity(0.2),
@@ -127,7 +133,7 @@ class RepairScreen extends StatelessWidget {
             scrollDirection: Axis.vertical,
             itemCount: 6,
             itemBuilder: (context, index) {
-              return buildRepairItemCard();
+              return buildRepairItemCard(context);
             },
             separatorBuilder: (BuildContext context, int index) {
               return SizedBox(height: 15);
