@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:furniswap/addresses_screen.dart';
 import 'package:furniswap/icons/icons.dart';
 import 'package:furniswap/listings_screen.dart';
+import 'package:furniswap/messages_list_screen.dart';
+import 'package:furniswap/notifications_screen.dart';
 import 'package:furniswap/orders_screen.dart';
 import 'package:furniswap/payment_methods_screen.dart';
 import 'package:furniswap/points_screen.dart';
@@ -85,6 +87,37 @@ class ProfileScreen extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
+        actions: [
+          IconButton(
+            icon:
+                const Icon(Icons.notifications_none, color: Color(0xff694A38)),
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => NotificationsScreen()));
+            },
+            style: TextButton.styleFrom(
+              padding: EdgeInsets.symmetric(horizontal: 3),
+              minimumSize: Size.zero,
+              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+            ),
+          ),
+          IconButton(
+            icon: const Icon(Icons.sms_outlined, color: Color(0xff694A38)),
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => MessagesListScreen()));
+            },
+            style: TextButton.styleFrom(
+              padding: EdgeInsets.only(left: 3, right: 8),
+              minimumSize: Size.zero,
+              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+            ),
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 25),

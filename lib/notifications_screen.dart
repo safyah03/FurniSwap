@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:furniswap/notification_details_screen.dart';
 
 class NotificationsScreen extends StatelessWidget {
   const NotificationsScreen({super.key});
@@ -121,12 +122,24 @@ class NotificationCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(16),
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        padding: EdgeInsets.all(16),
+        elevation: 2,
+        minimumSize: Size(double.infinity, 130),
+        backgroundColor: Colors.white,
+        shadowColor: Colors.black26,
+        overlayColor: Colors.brown.withOpacity(0.1),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
+        ),
       ),
+      onPressed: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => NotificationDetailsScreen()));
+      },
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -148,6 +161,7 @@ class NotificationCard extends StatelessWidget {
                   style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 15,
+                    color: Colors.black
                   ),
                 ),
                 const SizedBox(height: 4),

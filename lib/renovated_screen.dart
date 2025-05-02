@@ -1,5 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:furniswap/messages_list_screen.dart';
+import 'package:furniswap/notifications_screen.dart';
 
 class RenovatedScreen extends StatefulWidget {
   const RenovatedScreen({super.key});
@@ -266,6 +268,37 @@ class _RenovatedScreenState extends State<RenovatedScreen>
             fontWeight: FontWeight.bold,
           ),
         ),
+        actions: [
+          IconButton(
+            icon:
+                const Icon(Icons.notifications_none, color: Color(0xff694A38)),
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => NotificationsScreen()));
+            },
+            style: TextButton.styleFrom(
+              padding: EdgeInsets.symmetric(horizontal: 3),
+              minimumSize: Size.zero,
+              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+            ),
+          ),
+          IconButton(
+            icon: const Icon(Icons.sms_outlined, color: Color(0xff694A38)),
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => MessagesListScreen()));
+            },
+            style: TextButton.styleFrom(
+              padding: EdgeInsets.only(left: 3, right: 8),
+              minimumSize: Size.zero,
+              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+            ),
+          ),
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),

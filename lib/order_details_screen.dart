@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:furniswap/icons/icons.dart';
+import 'package:furniswap/messages_list_screen.dart';
+import 'package:furniswap/notifications_screen.dart';
 
 class OrderDetailsScreen extends StatelessWidget {
   const OrderDetailsScreen({super.key});
@@ -19,9 +21,36 @@ class OrderDetailsScreen extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        actions: const [
-          Icon(Icons.notifications_none, color: Color(0xff694A38)),
-          SizedBox(width: 16),
+        actions: [
+          IconButton(
+            icon:
+                const Icon(Icons.notifications_none, color: Color(0xff694A38)),
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => NotificationsScreen()));
+            },
+            style: TextButton.styleFrom(
+              padding: EdgeInsets.symmetric(horizontal: 3),
+              minimumSize: Size.zero,
+              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+            ),
+          ),
+          IconButton(
+            icon: const Icon(Icons.sms_outlined, color: Color(0xff694A38)),
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => MessagesListScreen()));
+            },
+            style: TextButton.styleFrom(
+              padding: EdgeInsets.only(left: 3, right: 8),
+              minimumSize: Size.zero,
+              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+            ),
+          ),
         ],
       ),
       body: SingleChildScrollView(
@@ -40,7 +69,8 @@ class OrderDetailsScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text('Order Status', style: TextStyle(fontWeight: FontWeight.bold)),
+                  const Text('Order Status',
+                      style: TextStyle(fontWeight: FontWeight.bold)),
                   const SizedBox(height: 16),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -71,38 +101,62 @@ class OrderDetailsScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Shipping Address', style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16)),
+                  Text('Shipping Address',
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
                   SizedBox(height: 8),
-                  Text('Sarah Johnson', style: TextStyle(color: Color(0xff4B5563)),),
-                  Text('123 Pine Street, Apt 4B', style: TextStyle(color: Color(0xff4B5563)),),
-                  Text('Brooklyn, NY 11201', style: TextStyle(color: Color(0xff4B5563)),),
+                  Text(
+                    'Sarah Johnson',
+                    style: TextStyle(color: Color(0xff4B5563)),
+                  ),
+                  Text(
+                    '123 Pine Street, Apt 4B',
+                    style: TextStyle(color: Color(0xff4B5563)),
+                  ),
+                  Text(
+                    'Brooklyn, NY 11201',
+                    style: TextStyle(color: Color(0xff4B5563)),
+                  ),
                   SizedBox(height: 16),
-                  Divider(height: 0,),
+                  Divider(
+                    height: 0,
+                  ),
                   ListTile(
                     contentPadding: EdgeInsets.zero,
-                    title: Text('Expected Delivery', style: TextStyle(fontSize: 14, color: Color(0xff6B7280)),),
-                    subtitle: Text('April 20, 2025', style: TextStyle(fontWeight: FontWeight.bold)),
-                    trailing: Icon(MyFlutterApp.delivery, color: Color(0xff8B4513), size: 18,),
+                    title: Text(
+                      'Expected Delivery',
+                      style: TextStyle(fontSize: 14, color: Color(0xff6B7280)),
+                    ),
+                    subtitle: Text('April 20, 2025',
+                        style: TextStyle(fontWeight: FontWeight.bold)),
+                    trailing: Icon(
+                      MyFlutterApp.delivery,
+                      color: Color(0xff8B4513),
+                      size: 18,
+                    ),
                   ),
                 ],
               ),
             ),
             const SizedBox(height: 24),
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(16),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(height: 16,),
-                  Text("Payment Method" , style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
-                  _buildPaymentCard(),
-                ],
-              )
-            ),
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      height: 16,
+                    ),
+                    Text("Payment Method",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 16)),
+                    _buildPaymentCard(),
+                  ],
+                )),
           ],
         ),
       ),
@@ -125,13 +179,18 @@ class OrderDetailsScreen extends StatelessWidget {
             elevation: 0,
             minimumSize: Size(double.infinity, 48),
             shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(Icons.support_agent, color: Colors.white,),
-              SizedBox(width: 5,),
+              Icon(
+                Icons.support_agent,
+                color: Colors.white,
+              ),
+              SizedBox(
+                width: 5,
+              ),
               Text("Contact Support",
                   style: TextStyle(color: Colors.white, fontSize: 16)),
             ],
@@ -141,7 +200,7 @@ class OrderDetailsScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildProductCard () {
+  Widget _buildProductCard() {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
@@ -163,7 +222,9 @@ class OrderDetailsScreen extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: 10,),
+          SizedBox(
+            height: 10,
+          ),
           Row(
             children: [
               Container(
@@ -184,7 +245,8 @@ class OrderDetailsScreen extends StatelessWidget {
                   children: const [
                     Text(
                       'Wooden Armchair',
-                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                      style:
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                     ),
                     SizedBox(height: 4),
                     Text(
@@ -194,7 +256,10 @@ class OrderDetailsScreen extends StatelessWidget {
                     SizedBox(height: 8),
                     Text(
                       '\$249.00',
-                      style: TextStyle(color: Colors.brown, fontWeight: FontWeight.bold, fontSize: 16),
+                      style: TextStyle(
+                          color: Colors.brown,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16),
                     ),
                   ],
                 ),
@@ -219,7 +284,7 @@ class OrderDetailsScreen extends StatelessWidget {
     );
   }
 
-  Widget _buidSellerInfoCard () {
+  Widget _buidSellerInfoCard() {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
       decoration: BoxDecoration(
@@ -232,15 +297,15 @@ class OrderDetailsScreen extends StatelessWidget {
           backgroundImage: AssetImage('assets/images/Avatar.png'),
           radius: 24,
         ),
-        title: Text('John Cooper', style: TextStyle(fontWeight: FontWeight.bold)),
+        title:
+            Text('John Cooper', style: TextStyle(fontWeight: FontWeight.bold)),
         subtitle: Text('Seller'),
         trailing: Icon(Icons.chat_bubble, color: Color(0xff8B4513)),
       ),
     );
   }
 
-
-  Widget _buildPaymentCard () {
+  Widget _buildPaymentCard() {
     return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       color: Colors.white,
@@ -254,10 +319,10 @@ class OrderDetailsScreen extends StatelessWidget {
         ),
         title: Text(
           'Visa ending in 4832',
-          style:
-          TextStyle(color: Colors.black, fontSize: 14),
+          style: TextStyle(color: Colors.black, fontSize: 14),
         ),
-        subtitle: Text('Expires 08/27', style: TextStyle(color: Colors.grey, fontSize: 13)),
+        subtitle: Text('Expires 08/27',
+            style: TextStyle(color: Colors.grey, fontSize: 13)),
       ),
     );
   }

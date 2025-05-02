@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:furniswap/icons/icons.dart';
+import 'package:furniswap/messages_list_screen.dart';
+import 'package:furniswap/notifications_screen.dart';
+import 'package:furniswap/order_details_screen.dart';
+import 'package:furniswap/update_order_screen.dart';
 
 class OrdersScreen extends StatelessWidget {
   const OrdersScreen({super.key});
@@ -79,7 +83,7 @@ class OrdersScreen extends StatelessWidget {
         ));
   }
 
-  Widget buildIProductCard({required Widget status}) {
+  Widget buildIProductCard({required Widget status, required BuildContext context}) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8),
       child: ElevatedButton(
@@ -94,7 +98,12 @@ class OrdersScreen extends StatelessWidget {
             borderRadius: BorderRadius.circular(12),
           ),
         ),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => UpdateOrderScreen()));
+        },
         child: Padding(
           padding: const EdgeInsets.all(10),
           child: Row(
@@ -141,7 +150,12 @@ class OrdersScreen extends StatelessWidget {
                     status,
                     SizedBox(height: 5),
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => OrderDetailsScreen()));
+                      },
                       style: ElevatedButton.styleFrom(
                         elevation: 5,
                         minimumSize: Size(double.infinity, 35),
@@ -181,17 +195,48 @@ class OrdersScreen extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
+        actions: [
+          IconButton(
+            icon:
+                const Icon(Icons.notifications_none, color: Color(0xff694A38)),
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => NotificationsScreen()));
+            },
+            style: TextButton.styleFrom(
+              padding: EdgeInsets.symmetric(horizontal: 3),
+              minimumSize: Size.zero,
+              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+            ),
+          ),
+          IconButton(
+            icon: const Icon(Icons.sms_outlined, color: Color(0xff694A38)),
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => MessagesListScreen()));
+            },
+            style: TextButton.styleFrom(
+              padding: EdgeInsets.only(left: 3, right: 8),
+              minimumSize: Size.zero,
+              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+            ),
+          ),
+        ],
       ),
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
-          buildIProductCard(status: buildPendingStatus()),
-          buildIProductCard(status: buildPendingStatus()),
-          buildIProductCard(status: buildShippedStatus()),
-          buildIProductCard(status: buildShippedStatus()),
-          buildIProductCard(status: buildDeliveredStatus()),
-          buildIProductCard(status: buildDeliveredStatus()),
-          buildIProductCard(status: buildDeliveredStatus()),
+          buildIProductCard(status: buildPendingStatus(), context: context),
+          buildIProductCard(status: buildPendingStatus(), context: context),
+          buildIProductCard(status: buildShippedStatus(), context: context),
+          buildIProductCard(status: buildShippedStatus(), context: context),
+          buildIProductCard(status: buildDeliveredStatus(), context: context),
+          buildIProductCard(status: buildDeliveredStatus(), context: context),
+          buildIProductCard(status: buildDeliveredStatus(), context: context),
         ],
       ),
     );
