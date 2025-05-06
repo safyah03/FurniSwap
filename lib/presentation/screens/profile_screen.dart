@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:furniswap/addresses_screen.dart';
+import 'package:furniswap/presentation/screens/addresses_screen.dart';
 import 'package:furniswap/icons/icons.dart';
-import 'package:furniswap/listings_screen.dart';
-import 'package:furniswap/messages_list_screen.dart';
-import 'package:furniswap/notifications_screen.dart';
-import 'package:furniswap/orders_screen.dart';
-import 'package:furniswap/payment_methods_screen.dart';
-import 'package:furniswap/points_screen.dart';
-import 'package:furniswap/reviews_screen.dart';
-import 'package:furniswap/settings_screen.dart';
+import 'package:furniswap/presentation/screens/listings_screen.dart';
+import 'package:furniswap/presentation/screens/messages_list_screen.dart';
+import 'package:furniswap/presentation/screens/notifications_screen.dart';
+import 'package:furniswap/presentation/screens/orders_screen.dart';
+import 'package:furniswap/presentation/screens/payment_methods_screen.dart';
+import 'package:furniswap/presentation/screens/points_screen.dart';
+import 'package:furniswap/presentation/screens/reviews_screen.dart';
+import 'package:furniswap/presentation/screens/settings_screen.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});

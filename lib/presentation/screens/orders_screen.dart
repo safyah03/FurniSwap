@@ -83,7 +83,8 @@ class OrdersScreen extends StatelessWidget {
         ));
   }
 
-  Widget buildIProductCard({required Widget status, required BuildContext context}) {
+  Widget buildIProductCard(
+      {required Widget status, required BuildContext context}) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8),
       child: ElevatedButton(
@@ -99,10 +100,8 @@ class OrdersScreen extends StatelessWidget {
           ),
         ),
         onPressed: () {
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => UpdateOrderScreen()));
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => UpdateOrderScreen()));
         },
         child: Padding(
           padding: const EdgeInsets.all(10),

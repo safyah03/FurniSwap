@@ -1,8 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:furniswap/icons/icons.dart';
-import 'package:furniswap/messages_list_screen.dart';
-import 'package:furniswap/notifications_screen.dart';
+import 'package:furniswap/presentation/screens/messages_list_screen.dart';
+import 'package:furniswap/presentation/screens/notifications_screen.dart';
 
 class ProductDetailsScreen extends StatefulWidget {
   @override

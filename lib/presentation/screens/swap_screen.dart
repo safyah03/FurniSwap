@@ -5,7 +5,6 @@ import 'package:furniswap/swap_details_screen.dart';
 class SwapScreen extends StatelessWidget {
   const SwapScreen({super.key});
 
-
   Widget buildSwapItemCard(BuildContext context) {
     return Container(
       width: 358,
@@ -26,10 +25,8 @@ class SwapScreen extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
         child: InkWell(
           onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => SwapDetailsScreen()));
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => SwapDetailsScreen()));
           },
           borderRadius: BorderRadius.circular(12),
           splashColor: Colors.brown.withOpacity(0.1),

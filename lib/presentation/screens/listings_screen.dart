@@ -13,10 +13,8 @@ class ListingsScreen extends StatelessWidget {
       borderRadius: BorderRadius.circular(12),
       child: InkWell(
         onTap: () {
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => UpdateProductScreen()));
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => UpdateProductScreen()));
         },
         borderRadius: BorderRadius.circular(12),
         splashColor: Colors.brown.withOpacity(0.1),
@@ -73,8 +71,8 @@ class ListingsScreen extends StatelessWidget {
                           ),
                           IconButton(
                             style: TextButton.styleFrom(
-                              padding:
-                                  EdgeInsets.symmetric(vertical: 8, horizontal: 3),
+                              padding: EdgeInsets.symmetric(
+                                  vertical: 8, horizontal: 3),
                               minimumSize: Size.zero,
                               tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                             ),
@@ -84,8 +82,8 @@ class ListingsScreen extends StatelessWidget {
                           ),
                           IconButton(
                             style: TextButton.styleFrom(
-                              padding:
-                                  EdgeInsets.symmetric(vertical: 8, horizontal: 3),
+                              padding: EdgeInsets.symmetric(
+                                  vertical: 8, horizontal: 3),
                               minimumSize: Size.zero,
                               tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                             ),
@@ -110,7 +108,8 @@ class ListingsScreen extends StatelessWidget {
                           _buildTag(
                               "Used", Colors.brown.shade50, Color(0xff8B5E34)),
                           SizedBox(width: 6),
-                          _buildTag("For Sale", Color(0xff694A38), Colors.white),
+                          _buildTag(
+                              "For Sale", Color(0xff694A38), Colors.white),
                         ],
                       ),
                     ],

@@ -10,7 +10,8 @@ class AccountSettingsScreen extends StatefulWidget {
 }
 
 class _AccountSettingsScreenState extends State<AccountSettingsScreen> {
-  final _emailController = TextEditingController(text: 'sarahmitchell@gmail.com');
+  final _emailController =
+      TextEditingController(text: 'sarahmitchell@gmail.com');
   final _firstNameController = TextEditingController(text: 'Sarah');
   final _lastNameController = TextEditingController(text: 'Mitchell');
   final _dobController = TextEditingController(text: '1/10/2003');
@@ -81,7 +82,7 @@ class _AccountSettingsScreenState extends State<AccountSettingsScreen> {
         actions: [
           IconButton(
             icon:
-            const Icon(Icons.notifications_none, color: Color(0xff694A38)),
+                const Icon(Icons.notifications_none, color: Color(0xff694A38)),
             onPressed: () {
               Navigator.push(
                   context,
@@ -127,17 +128,22 @@ class _AccountSettingsScreenState extends State<AccountSettingsScreen> {
                   children: [
                     Text("Sarah Mitchell",
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 16, color: Color(0xff4A3C2E))),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                            color: Color(0xff4A3C2E))),
                     Text("sarahmitchell@gmail.com",
-                        style: TextStyle(color: Color(0xff8B7355), fontSize: 14)),
+                        style:
+                            TextStyle(color: Color(0xff8B7355), fontSize: 14)),
                   ],
                 ),
               ],
             ),
             const SizedBox(height: 24),
             _buildTextField(label: 'Email', controller: _emailController),
-            _buildTextField(label: 'First Name', controller: _firstNameController),
-            _buildTextField(label: 'Last Name', controller: _lastNameController),
+            _buildTextField(
+                label: 'First Name', controller: _firstNameController),
+            _buildTextField(
+                label: 'Last Name', controller: _lastNameController),
             _buildDateField(label: 'Date of birth', controller: _dobController),
             _buildDropdownField(label: 'Gender'),
             const SizedBox(height: 16),
@@ -168,7 +174,8 @@ class _AccountSettingsScreenState extends State<AccountSettingsScreen> {
     );
   }
 
-  Widget _buildTextField({required String label, required TextEditingController controller}) {
+  Widget _buildTextField(
+      {required String label, required TextEditingController controller}) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8),
       child: Column(
@@ -184,7 +191,7 @@ class _AccountSettingsScreenState extends State<AccountSettingsScreen> {
               filled: true,
               fillColor: Colors.white,
               contentPadding:
-              const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+                  const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
                 borderSide: BorderSide(color: Color(0xffE8E2D9), width: 1),
@@ -200,7 +207,8 @@ class _AccountSettingsScreenState extends State<AccountSettingsScreen> {
     );
   }
 
-  Widget _buildDateField({required String label, required TextEditingController controller}) {
+  Widget _buildDateField(
+      {required String label, required TextEditingController controller}) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8),
       child: Column(
@@ -219,7 +227,7 @@ class _AccountSettingsScreenState extends State<AccountSettingsScreen> {
               filled: true,
               fillColor: Colors.white,
               contentPadding:
-              const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+                  const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
                 borderSide: BorderSide(color: Color(0xffE8E2D9), width: 1),
@@ -253,7 +261,7 @@ class _AccountSettingsScreenState extends State<AccountSettingsScreen> {
               filled: true,
               fillColor: Colors.white,
               contentPadding:
-              const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+                  const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
                 borderSide: BorderSide(color: Color(0xffE8E2D9), width: 1),

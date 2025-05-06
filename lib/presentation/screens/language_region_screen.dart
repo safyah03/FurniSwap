@@ -34,7 +34,8 @@ class _LanguageRegionScreenState extends State<LanguageRegionScreen> {
         ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.notifications_none, color: Color(0xff694A38)),
+            icon:
+                const Icon(Icons.notifications_none, color: Color(0xff694A38)),
             onPressed: () {
               Navigator.push(
                   context,
@@ -159,7 +160,8 @@ class _LanguageRegionScreenState extends State<LanguageRegionScreen> {
           decoration: InputDecoration(
             filled: true,
             fillColor: Colors.white,
-            contentPadding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+            contentPadding:
+                const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8),
               borderSide: BorderSide(color: Color(0xffE8E2D9), width: 1),

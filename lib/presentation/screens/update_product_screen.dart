@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:furniswap/messages_list_screen.dart';
-import 'package:furniswap/notifications_screen.dart';
+import 'package:furniswap/presentation/screens/messages_list_screen.dart';
+import 'package:furniswap/presentation/screens/notifications_screen.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:dotted_border/dotted_border.dart';

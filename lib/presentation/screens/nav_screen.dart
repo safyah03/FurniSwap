@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:furniswap/categories_screen.dart';
-import 'package:furniswap/home_screen.dart';
+import 'package:furniswap/presentation/screens/categories_screen.dart';
+import 'package:furniswap/presentation/screens/home_screen.dart';
 import 'package:furniswap/icons/icons.dart';
-import 'package:furniswap/profile_screen.dart';
-import 'package:furniswap/renovated_screen.dart';
-import 'package:furniswap/swap_and_repair_screens/swap_and_repair_main_screen.dart';
+import 'package:furniswap/presentation/screens/profile_screen.dart';
+import 'package:furniswap/presentation/screens/renovated_screen.dart';
+import 'package:furniswap/presentation/screens/swap_and_repair_main_screen.dart';
 
 class NavScreen extends StatefulWidget {
   final int initialIndex;

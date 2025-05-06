@@ -42,8 +42,8 @@ class SwapAndRepairMainScreen extends StatelessWidget {
           ),
           actions: [
             IconButton(
-              icon:
-              const Icon(Icons.notifications_none, color: Color(0xff694A38)),
+              icon: const Icon(Icons.notifications_none,
+                  color: Color(0xff694A38)),
               onPressed: () {
                 Navigator.push(
                     context,

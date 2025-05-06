@@ -25,10 +25,8 @@ class RepairScreen extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
         child: InkWell(
           onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => RepairDetailsScreen()));
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => RepairDetailsScreen()));
           },
           borderRadius: BorderRadius.circular(12),
           splashColor: Colors.brown.withOpacity(0.1),

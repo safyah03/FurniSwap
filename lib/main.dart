@@ -42,6 +42,6 @@ class MyApp extends StatelessWidget {
             surfaceTintColor: Colors.black12,
           )),
       home: SplashScreen(),
-    )  ;
+    );
   }
 }

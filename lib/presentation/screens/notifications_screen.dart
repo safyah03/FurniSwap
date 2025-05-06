@@ -159,10 +159,9 @@ class NotificationCard extends StatelessWidget {
                 Text(
                   title,
                   style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 15,
-                    color: Colors.black
-                  ),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 15,
+                      color: Colors.black),
                 ),
                 const SizedBox(height: 4),
                 Text(

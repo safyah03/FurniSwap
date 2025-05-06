@@ -63,7 +63,8 @@ class _MessagesDetailsScreenState extends State<MessagesDetailsScreen> {
                 title: Text('Take a photo'),
                 onTap: () async {
                   Navigator.pop(context);
-                  final pickedFile = await ImagePicker().pickImage(source: ImageSource.camera);
+                  final pickedFile =
+                      await ImagePicker().pickImage(source: ImageSource.camera);
                   if (pickedFile != null) {
                     setState(() {
                       _imageFile = File(pickedFile.path);
@@ -76,7 +77,8 @@ class _MessagesDetailsScreenState extends State<MessagesDetailsScreen> {
                 title: Text('Choose from gallery'),
                 onTap: () async {
                   Navigator.pop(context);
-                  final pickedFile = await ImagePicker().pickImage(source: ImageSource.gallery);
+                  final pickedFile = await ImagePicker()
+                      .pickImage(source: ImageSource.gallery);
                   if (pickedFile != null) {
                     setState(() {
                       _imageFile = File(pickedFile.path);
@@ -90,7 +92,6 @@ class _MessagesDetailsScreenState extends State<MessagesDetailsScreen> {
       },
     );
   }
-
 
   void _sendMessage() {
     if (_controller.text.trim().isEmpty && _imageFile == null) return;
@@ -106,7 +107,6 @@ class _MessagesDetailsScreenState extends State<MessagesDetailsScreen> {
     });
     _focusNode.requestFocus();
   }
-
 
   void _toggleEmojiPicker() {
     if (_showEmojiPicker) {
@@ -140,7 +140,10 @@ class _MessagesDetailsScreenState extends State<MessagesDetailsScreen> {
               children: const [
                 Text(
                   'Michael Chen',
-                  style: TextStyle(color: Color(0xFF5D4037), fontWeight: FontWeight.bold, fontSize: 16),
+                  style: TextStyle(
+                      color: Color(0xFF5D4037),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16),
                 ),
                 Text(
                   'Swapping: Leather Sofa',
@@ -193,7 +196,8 @@ class _MessagesDetailsScreenState extends State<MessagesDetailsScreen> {
                         const SizedBox(height: 4),
                         Text(
                           message['time'],
-                          style: const TextStyle(color: Colors.white70, fontSize: 10),
+                          style: const TextStyle(
+                              color: Colors.white70, fontSize: 10),
                         ),
                       ],
                     ),
@@ -221,18 +225,20 @@ class _MessagesDetailsScreenState extends State<MessagesDetailsScreen> {
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
               decoration: BoxDecoration(
-                color: Color(0xffF7F5F2),
-                borderRadius: BorderRadius.circular(45)
-              ),
+                  color: Color(0xffF7F5F2),
+                  borderRadius: BorderRadius.circular(45)),
               child: Row(
                 children: [
                   IconButton(
-                    icon: const Icon(Icons.image_outlined, color: Color(0xFF8B7355)),
+                    icon: const Icon(Icons.image_outlined,
+                        color: Color(0xFF8B7355)),
                     onPressed: _pickImage,
                   ),
                   IconButton(
                     icon: Icon(
-                      _showEmojiPicker ? Icons.keyboard_alt_outlined : Icons.emoji_emotions_outlined,
+                      _showEmojiPicker
+                          ? Icons.keyboard_alt_outlined
+                          : Icons.emoji_emotions_outlined,
                       color: const Color(0xFF8B7355),
                     ),
                     onPressed: _toggleEmojiPicker,

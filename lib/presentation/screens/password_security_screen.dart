@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:furniswap/auth_screens/forgot_password_screen.dart';
-import 'package:furniswap/messages_list_screen.dart';
-import 'package:furniswap/notifications_screen.dart';
+import 'package:furniswap/presentation/screens/auth_screens/forgot_password_screen.dart';
+import 'package:furniswap/presentation/screens/messages_list_screen.dart';
+import 'package:furniswap/presentation/screens/notifications_screen.dart';
 
 class PasswordSecurityScreen extends StatefulWidget {
   const PasswordSecurityScreen({super.key});

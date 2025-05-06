@@ -14,24 +14,31 @@ class Assets {
   static const String imagesChairs = 'assets/images/Chairs.png';
   static const String imagesCoffeeTable = 'assets/images/Coffee_Table.png';
   static const String imagesDesks = 'assets/images/Desks.png';
-  static const String imagesDiningChairSet = 'assets/images/Dining_Chair_Set.png';
+  static const String imagesDiningChairSet =
+      'assets/images/Dining_Chair_Set.png';
   static const String imagesDresser = 'assets/images/Dresser.png';
   static const String imagesLighting = 'assets/images/Lighting.png';
   static const String imagesLogo = 'assets/images/logo.png';
-  static const String imagesOldChairBookshelf = 'assets/images/Old_Chair_Bookshelf.png';
+  static const String imagesOldChairBookshelf =
+      'assets/images/Old_Chair_Bookshelf.png';
   static const String imagesRenovated1 = 'assets/images/renovated1.png';
   static const String imagesRenovated2 = 'assets/images/renovated2.png';
   static const String imagesRenovated3 = 'assets/images/renovated3.png';
   static const String imagesSofas = 'assets/images/Sofas.png';
   static const String imagesSplashBg = 'assets/images/splash_bg.png';
   static const String imagesTables = 'assets/images/Tables.png';
-  static const String imagesVintageArmchair = 'assets/images/Vintage_Armchair.png';
-  static const String imagesVintageArmchair2 = 'assets/images/Vintage_Armchair2.png';
+  static const String imagesVintageArmchair =
+      'assets/images/Vintage_Armchair.png';
+  static const String imagesVintageArmchair2 =
+      'assets/images/Vintage_Armchair2.png';
   static const String imagesVintageChair = 'assets/images/Vintage_Chair.png';
-  static const String imagesVintageCoffeeTable = 'assets/images/Vintage_Coffee_Table.png';
-  static const String imagesVintageLeatherArmchair = 'assets/images/Vintage_Leather_Armchair.png';
+  static const String imagesVintageCoffeeTable =
+      'assets/images/Vintage_Coffee_Table.png';
+  static const String imagesVintageLeatherArmchair =
+      'assets/images/Vintage_Leather_Armchair.png';
   static const String imagesWoodenChair = 'assets/images/Wooden_Chair.png';
-  static const String imagesWoodenDiningChair = 'assets/images/Wooden_Dining_Chair.png';
-  static const String imagesWoodenTableRefinishing = 'assets/images/Wooden_Table_Refinishing.png';
-
+  static const String imagesWoodenDiningChair =
+      'assets/images/Wooden_Dining_Chair.png';
+  static const String imagesWoodenTableRefinishing =
+      'assets/images/Wooden_Table_Refinishing.png';
 }
