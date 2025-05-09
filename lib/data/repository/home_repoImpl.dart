@@ -1,13 +1,36 @@
 import 'package:dartz/dartz.dart';
+import 'package:furniswap/business_logic/bloc/fetch_all_products_bloc.dart';
 import 'package:furniswap/core/errors/failures.dart';
+import 'package:furniswap/data/api_services/api_sevice.dart';
 import 'package:furniswap/data/models/furni_model.dart';
 import 'package:furniswap/data/repository/home_repo.dart';
 
 class HomeRepoimpl implements HomeRepo {
+  final ApiService apiService;
+
+  HomeRepoimpl(this.apiService);
   @override
-  Future<Either<Failure, List<FurniModel>>> fetchFeaturedItems() {
-    // TODO: implement fetchFeaturedItems
-    throw UnimplementedError();
+  Future<Either<Failure, List<FurniModel>>> FetchAllProducts() async {
+    try {
+      final data = await apiService.get(endPoint: '/product/all');
+
+      if (data['status'] == 'success' &&
+          data['message'] == 'No products found') {
+        return right([]);
+      }
+
+      if (data['data'] is List) {
+        List<FurniModel> furni = (data['data'] as List)
+            .map((item) => FurniModel.fromJson(item))
+            .toList();
+
+        return right(furni);
+      }
+
+      return left(ServerFailure(message: 'Unexpected response format'));
+    } catch (e) {
+      return left(ServerFailure(message: e.toString()));
+    }
   }
 
   @override
