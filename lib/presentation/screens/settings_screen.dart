@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:furniswap/account_settings_screen.dart';
+import 'package:furniswap/presentation/screens/account_settings_screen.dart';
 import 'package:furniswap/auth_screens/login_screen.dart';
 import 'package:furniswap/icons/icons.dart';
-import 'package:furniswap/language_region_screen.dart';
-import 'package:furniswap/messages_list_screen.dart';
-import 'package:furniswap/notifications_screen.dart';
-import 'package:furniswap/password_security_screen.dart';
-import 'package:furniswap/profile_screen.dart';
+import 'package:furniswap/presentation/screens/language_region_screen.dart';
+import 'package:furniswap/presentation/screens/messages_list_screen.dart';
+import 'package:furniswap/presentation/screens/notifications_screen.dart';
+import 'package:furniswap/presentation/screens/password_security_screen.dart';
+import 'package:furniswap/presentation/screens/profile_screen.dart';
 
 Widget buildListItem({
   required IconData icon,

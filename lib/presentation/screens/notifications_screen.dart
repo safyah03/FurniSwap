@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:furniswap/notification_details_screen.dart';
+import 'package:furniswap/presentation/screens/notification_details_screen.dart';
 
 class NotificationsScreen extends StatelessWidget {
   const NotificationsScreen({super.key});

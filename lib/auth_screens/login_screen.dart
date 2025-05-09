@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:furniswap/presentation/screens/auth_screens/forgot_password_screen.dart';
-import 'package:furniswap/presentation/screens/auth_screens/sign_up_screen.dart';
+import 'package:furniswap/auth_screens/forgot_password_screen.dart';
+import 'package:furniswap/auth_screens/sign_up_screen.dart';
 import 'package:furniswap/icons/icons.dart';
 import 'package:furniswap/presentation/screens/nav_screen.dart';
 

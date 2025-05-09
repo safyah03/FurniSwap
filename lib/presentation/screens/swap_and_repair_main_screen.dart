@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:furniswap/icons/icons.dart';
-import 'package:furniswap/messages_list_screen.dart';
-import 'package:furniswap/notifications_screen.dart';
-import 'package:furniswap/swap_and_repair_screens/diy_screen.dart';
-import 'package:furniswap/swap_and_repair_screens/repair_screen.dart';
-import 'package:furniswap/swap_and_repair_screens/swap_screen.dart';
+import 'package:furniswap/presentation/screens/messages_list_screen.dart';
+import 'package:furniswap/presentation/screens/notifications_screen.dart';
+import 'package:furniswap/presentation/screens/diy_screen.dart';
+import 'package:furniswap/presentation/screens/repair_screen.dart';
+import 'package:furniswap/presentation/screens/swap_screen.dart';
 
 class SwapAndRepairMainScreen extends StatelessWidget {
   const SwapAndRepairMainScreen({super.key});

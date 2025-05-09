@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:furniswap/splash_screen.dart';
+import 'package:furniswap/presentation/screens/splash_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
