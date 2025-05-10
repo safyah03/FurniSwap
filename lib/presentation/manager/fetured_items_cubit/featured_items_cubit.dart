@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:furniswap/core/errors/failures.dart';
-import 'package:furniswap/data/models/furni_model.dart';
+import 'package:furniswap/data/models/all_categories/all_categories.dart';
 import 'package:furniswap/data/repository/home_repo.dart';
 import 'package:meta/meta.dart';
 

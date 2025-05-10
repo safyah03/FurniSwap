@@ -14,7 +14,7 @@ final class FeaturedItemsFailure extends FeaturedItemsState {
 }
 
 final class FeaturedItemsSuccess extends FeaturedItemsState {
-  final List<FurniModel> furni;
+  final List<AllCategories> furni;
 
   FeaturedItemsSuccess(this.furni);
 }
