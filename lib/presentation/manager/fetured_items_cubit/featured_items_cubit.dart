@@ -9,8 +9,8 @@ part 'featured_items_state.dart';
 class FeaturedItemsCubit extends Cubit<FeaturedItemsState> {
   FeaturedItemsCubit(this.homeRepo) : super(FeaturedItemsInitial());
   final HomeRepo homeRepo;
-  Future<void> fetchFeaturedItems() async {
-    var result = await homeRepo.FetchAllProducts();
+  Future<void> fetchallCategories() async {
+    var result = await homeRepo.FetchallCategories();
     result.fold((Failure) {
       emit(FeaturedItemsFailure("Error"));
     }, (furni) {
