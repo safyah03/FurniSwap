@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:furniswap/business_logic/bloc/fetch_all_products_bloc.dart';
 import 'package:furniswap/core/errors/failures.dart';
 import 'package:furniswap/data/models/furni_model.dart';
 
