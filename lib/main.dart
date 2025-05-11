@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:furniswap/data/api_services/api_sevice.dart';
 import 'package:furniswap/data/repository/auth_repoImpl.dart';
+import 'package:furniswap/data/repository/auth_repo.dart';
 import 'package:furniswap/presentation/manager/signup/sign_up_cubit.dart';
 import 'package:furniswap/presentation/screens/splash_screen.dart';
 
@@ -11,13 +12,13 @@ Future<void> main() async {
 
   final dio = Dio();
   final apiService = ApiService(dio);
-  final authRepo = AuthRepoImpl(apiService);
+  final AuthRepo authRepo = AuthRepoImpl(apiService);
 
   runApp(MyApp(authRepo: authRepo));
 }
 
 class MyApp extends StatelessWidget {
-  final AuthRepoImpl authRepo;
+  final AuthRepo authRepo;
   const MyApp({super.key, required this.authRepo});
 
   @override

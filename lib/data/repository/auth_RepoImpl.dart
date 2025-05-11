@@ -6,7 +6,6 @@ import 'package:furniswap/data/repository/auth_repo.dart';
 
 class AuthRepoImpl implements AuthRepo {
   final ApiService apiService;
-
   AuthRepoImpl(this.apiService);
 
   @override
@@ -23,18 +22,11 @@ class AuthRepoImpl implements AuthRepo {
   }
 
   @override
-  Future<Either<Failure, String>> verifyOtp({
-    required String email,
-    required String otp,
-  }) async {
+  Future<Either<Failure, String>> verifyOtp(
+      {required String email, required String otp}) async {
     try {
       final response = await apiService.post(
-        endPoint: '/auth/otp/verify',
-        data: {
-          "email": email,
-          "otp": otp,
-        },
-      );
+          endPoint: '/auth/otp/verify', data: {"email": email, "otp": otp});
       return right(response['message'] ?? 'OTP verified successfully');
     } catch (e) {
       return left(ServerFailure(message: e.toString()));
