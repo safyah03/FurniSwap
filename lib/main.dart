@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:furniswap/data/api_services/api_sevice.dart';
-import 'package:furniswap/data/repository/auth_RepoImpl.dart';
+import 'package:furniswap/data/repository/auth_repoImpl.dart';
 import 'package:furniswap/presentation/manager/signup/sign_up_cubit.dart';
 import 'package:furniswap/presentation/screens/splash_screen.dart';
 

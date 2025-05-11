@@ -29,7 +29,7 @@ class AuthRepoImpl implements AuthRepo {
   }) async {
     try {
       final response = await apiService.post(
-        endPoint: '/auth/verify-otp',
+        endPoint: '/auth/otp/verify',
         data: {
           "email": email,
           "otp": otp,
