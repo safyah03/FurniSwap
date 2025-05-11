@@ -28,3 +28,12 @@ final class SignUpFailure extends SignUpState {
   @override
   List<Object?> get props => [errorMessage];
 }
+
+final class OtpVerifiedSuccess extends SignUpState {
+  final String message;
+
+  const OtpVerifiedSuccess(this.message);
+
+  @override
+  List<Object?> get props => [message];
+}

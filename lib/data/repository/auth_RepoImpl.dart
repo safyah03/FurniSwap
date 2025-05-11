@@ -3,7 +3,6 @@ import 'package:furniswap/core/errors/failures.dart';
 import 'package:furniswap/data/api_services/api_sevice.dart';
 import 'package:furniswap/data/models/auth/register.response.dart';
 import 'package:furniswap/data/repository/auth_repo.dart';
-import 'package:furniswap/data/repository/auth_repo.dart';
 
 class AuthRepoImpl implements AuthRepo {
   final ApiService apiService;
@@ -18,6 +17,25 @@ class AuthRepoImpl implements AuthRepo {
           await apiService.post(endPoint: '/auth/signup', data: data);
       final register = Register.fromJson(response);
       return right(register);
+    } catch (e) {
+      return left(ServerFailure(message: e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, String>> verifyOtp({
+    required String email,
+    required String otp,
+  }) async {
+    try {
+      final response = await apiService.post(
+        endPoint: '/auth/verify-otp',
+        data: {
+          "email": email,
+          "otp": otp,
+        },
+      );
+      return right(response['message'] ?? 'OTP verified successfully');
     } catch (e) {
       return left(ServerFailure(message: e.toString()));
     }

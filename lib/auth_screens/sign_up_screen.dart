@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:furniswap/icons/icons.dart';
 import 'package:furniswap/auth_screens/login_screen.dart';
 import 'package:furniswap/presentation/manager/signup/sign_up_cubit.dart';
+import 'package:furniswap/auth_screens/otp_verification_screen.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -15,8 +16,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final _formKey = GlobalKey<FormState>();
   final nameController = TextEditingController();
   final emailController = TextEditingController();
+  final phoneController = TextEditingController();
   final passwordController = TextEditingController();
-  final confirmPasswordController = TextEditingController();
 
   Widget buildTextFormField({
     required bool obscureText,
@@ -64,24 +65,21 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   void submitSignUp(BuildContext context) {
     if (_formKey.currentState!.validate()) {
-      if (passwordController.text != confirmPasswordController.text) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Passwords do not match')),
-        );
-        return;
-      }
+      final data = {
+        "email": emailController.text.trim(),
+        "name": nameController.text.trim(),
+        "phone": phoneController.text.trim(),
+        "password": passwordController.text.trim(),
+      };
 
-      context.read<SignUpCubit>().registerUser({
-        "fullName": nameController.text,
-        "email": emailController.text,
-        "password": passwordController.text,
-        "confirmPassword": confirmPasswordController.text,
-      });
+      context.read<SignUpCubit>().registerUser(data);
     }
   }
 
-  Widget buildSignUpWithButton(
-      {required IconData icon, required String lable}) {
+  Widget buildSignUpWithButton({
+    required IconData icon,
+    required String lable,
+  }) {
     return ElevatedButton(
       onPressed: () {},
       style: ElevatedButton.styleFrom(
@@ -121,7 +119,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
             );
             Navigator.pushReplacement(
               context,
-              MaterialPageRoute(builder: (_) => const LoginScreen()),
+              MaterialPageRoute(
+                builder: (_) =>
+                    OtpVerificationScreen(email: state.register.email ?? ''),
+              ),
             );
           }
         },
@@ -143,29 +144,33 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                     const SizedBox(height: 30),
                     buildTextFormField(
-                        controller: nameController,
-                        obscureText: false,
-                        type: TextInputType.name,
-                        prefixIcon: Icons.person_outline,
-                        hintText: "Full Name"),
+                      controller: nameController,
+                      obscureText: false,
+                      type: TextInputType.name,
+                      prefixIcon: Icons.person_outline,
+                      hintText: "Full Name",
+                    ),
                     buildTextFormField(
-                        controller: emailController,
-                        obscureText: false,
-                        type: TextInputType.emailAddress,
-                        prefixIcon: Icons.email_outlined,
-                        hintText: "Email"),
+                      controller: emailController,
+                      obscureText: false,
+                      type: TextInputType.emailAddress,
+                      prefixIcon: Icons.email_outlined,
+                      hintText: "Email",
+                    ),
                     buildTextFormField(
-                        controller: passwordController,
-                        obscureText: true,
-                        type: TextInputType.visiblePassword,
-                        prefixIcon: Icons.lock,
-                        hintText: "Password"),
+                      controller: phoneController,
+                      obscureText: false,
+                      type: TextInputType.phone,
+                      prefixIcon: Icons.phone,
+                      hintText: "Phone",
+                    ),
                     buildTextFormField(
-                        controller: confirmPasswordController,
-                        obscureText: true,
-                        type: TextInputType.visiblePassword,
-                        prefixIcon: Icons.lock,
-                        hintText: "Confirm Password"),
+                      controller: passwordController,
+                      obscureText: true,
+                      type: TextInputType.visiblePassword,
+                      prefixIcon: Icons.lock,
+                      hintText: "Password",
+                    ),
                     state is SignUpLoading
                         ? const CircularProgressIndicator()
                         : ElevatedButton(
@@ -177,8 +182,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 borderRadius: BorderRadius.circular(8),
                               ),
                             ),
-                            child: const Text("Sign Up",
-                                style: TextStyle(color: Colors.white)),
+                            child: const Text(
+                              "Sign Up",
+                              style: TextStyle(color: Colors.white),
+                            ),
                           ),
                     const SizedBox(height: 15),
                     Row(
@@ -198,7 +205,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               style: TextStyle(
                                   color: Color(0xff4A3419),
                                   fontWeight: FontWeight.bold)),
-                        )
+                        ),
                       ],
                     ),
                     const Text("Or sign up with",

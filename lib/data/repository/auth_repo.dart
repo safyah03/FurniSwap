@@ -4,5 +4,9 @@ import 'package:furniswap/data/models/auth/register.response.dart';
 
 abstract class AuthRepo {
   Future<Either<Failure, Register>> registerUser(Map<String, dynamic> data);
-//    Future<Either<Failure, LoginResponse>> loginUser(Map<String, dynamic> data); // for later
+
+  Future<Either<Failure, String>> verifyOtp({
+    required String email,
+    required String otp,
+  });
 }
