@@ -33,17 +33,4 @@ class HomeRepoImpl implements HomeRepo {
       return left(ServerFailure(message: e.toString()));
     }
   }
-
-  @override
-  Future<Either<Failure, Register>> registerUser(
-      Map<String, dynamic> data) async {
-    try {
-      final response =
-          await apiService.post(endPoint: '/auth/signup', data: data);
-      final register = Register.fromJson(response);
-      return right(register);
-    } catch (e) {
-      return left(ServerFailure(message: e.toString()));
-    }
-  }
 }

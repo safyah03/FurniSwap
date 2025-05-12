@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:furniswap/core/errors/failures.dart';
 import 'package:furniswap/data/api_services/api_sevice.dart';
+import 'package:furniswap/data/models/auth/login_response/login_response.dart';
 import 'package:furniswap/data/models/auth/register.response.dart';
 import 'package:furniswap/data/repository/auth_repo.dart';
 
@@ -28,6 +29,19 @@ class AuthRepoImpl implements AuthRepo {
       final response = await apiService.post(
           endPoint: '/auth/otp/verify', data: {"email": email, "otp": otp});
       return right(response['message'] ?? 'OTP verified successfully');
+    } catch (e) {
+      return left(ServerFailure(message: e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, LoginResponse>> loginUser(
+      Map<String, dynamic> data) async {
+    try {
+      final response =
+          await apiService.post(endPoint: '/auth/login', data: data);
+      final loginResponse = LoginResponse.fromJson(response);
+      return right(loginResponse);
     } catch (e) {
       return left(ServerFailure(message: e.toString()));
     }
