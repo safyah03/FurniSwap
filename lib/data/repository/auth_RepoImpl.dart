@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:furniswap/core/errors/failures.dart';
 import 'package:furniswap/data/api_services/api_sevice.dart';
 import 'package:furniswap/data/models/auth/login_response/login_response.dart';
-import 'package:furniswap/data/models/auth/register.response.dart';
+import 'package:furniswap/data/models/auth/signup_response/register.response.dart';
 import 'package:furniswap/data/repository/auth_repo.dart';
 
 class AuthRepoImpl implements AuthRepo {

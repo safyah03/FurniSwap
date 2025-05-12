@@ -4,6 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:furniswap/data/api_services/api_sevice.dart';
 import 'package:furniswap/data/repository/auth_repoImpl.dart';
 import 'package:furniswap/data/repository/auth_repo.dart';
+import 'package:furniswap/presentation/manager/cubit/login_cubit.dart';
 import 'package:furniswap/presentation/manager/signup/sign_up_cubit.dart';
 import 'package:furniswap/presentation/screens/splash_screen.dart';
 
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (_) => SignUpCubit(authRepo)),
+        BlocProvider(create: (_) => LoginCubit(authRepo)),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
